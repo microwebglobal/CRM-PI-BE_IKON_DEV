@@ -91,19 +91,4 @@ public class ClientHttpConnectorAutoConfiguration__BeanDefinitions {
     beanDefinition.setInstanceSupplier(getClientHttpConnectorInstanceSupplier());
     return beanDefinition;
   }
-
-  /**
-   * Bean definitions for {@link ClientHttpConnectorAutoConfiguration.ReactorNetty}.
-   */
-  @Generated
-  public static class ReactorNetty {
-    /**
-     * Get the bean definition for 'reactorNetty'.
-     */
-    public static BeanDefinition getReactorNettyBeanDefinition() {
-      RootBeanDefinition beanDefinition = new RootBeanDefinition(ClientHttpConnectorAutoConfiguration.ReactorNetty.class);
-      beanDefinition.setInstanceSupplier(ClientHttpConnectorAutoConfiguration.ReactorNetty::new);
-      return beanDefinition;
-    }
-  }
 }

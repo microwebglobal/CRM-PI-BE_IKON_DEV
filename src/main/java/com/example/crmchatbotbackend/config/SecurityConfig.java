@@ -37,6 +37,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/api/auth/login",
+                                "/api/chat",
                                 "/api/auth/register",
                                 "/api/auth/logout", // ✅ Include logout as public or protected based on logic
                                 "/swagger-ui.html",
@@ -59,12 +60,11 @@ public class SecurityConfig {
                                 "/*.svg",
                                 "/*.woff2",
                                 "/*.ttf",
-                                "/error"
-                        ).permitAll()
+                                "/error")
+                        .permitAll()
 
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Allow CORS preflight
-                        .anyRequest().authenticated()
-                )
+                        .anyRequest().authenticated())
                 .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }

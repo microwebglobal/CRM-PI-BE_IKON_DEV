@@ -1,5 +1,6 @@
 package org.springframework.boot.autoconfigure.jackson;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import java.util.List;
 import org.springframework.aot.generate.Generated;
@@ -194,6 +195,25 @@ public class JacksonAutoConfiguration__BeanDefinitions {
     public static BeanDefinition getJacksonObjectMapperConfigurationBeanDefinition() {
       RootBeanDefinition beanDefinition = new RootBeanDefinition(JacksonAutoConfiguration.JacksonObjectMapperConfiguration.class);
       beanDefinition.setInstanceSupplier(JacksonAutoConfiguration.JacksonObjectMapperConfiguration::new);
+      return beanDefinition;
+    }
+
+    /**
+     * Get the bean instance supplier for 'jacksonObjectMapper'.
+     */
+    private static BeanInstanceSupplier<ObjectMapper> getJacksonObjectMapperInstanceSupplier() {
+      return BeanInstanceSupplier.<ObjectMapper>forFactoryMethod(JacksonAutoConfiguration.JacksonObjectMapperConfiguration.class, "jacksonObjectMapper", Jackson2ObjectMapperBuilder.class)
+              .withGenerator((registeredBean, args) -> registeredBean.getBeanFactory().getBean("org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration", JacksonAutoConfiguration.JacksonObjectMapperConfiguration.class).jacksonObjectMapper(args.get(0)));
+    }
+
+    /**
+     * Get the bean definition for 'jacksonObjectMapper'.
+     */
+    public static BeanDefinition getJacksonObjectMapperBeanDefinition() {
+      RootBeanDefinition beanDefinition = new RootBeanDefinition(ObjectMapper.class);
+      beanDefinition.setPrimary(true);
+      beanDefinition.setFactoryBeanName("org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration$JacksonObjectMapperConfiguration");
+      beanDefinition.setInstanceSupplier(getJacksonObjectMapperInstanceSupplier());
       return beanDefinition;
     }
   }

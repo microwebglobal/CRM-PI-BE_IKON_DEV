@@ -55,6 +55,12 @@
   },
   {
     "condition": {
+      "typeReachable": "org.springframework.data.redis.cache.RedisCacheManager"
+    },
+    "name": "org.springframework.cache.support.NullValue"
+  },
+  {
+    "condition": {
       "typeReachable": "org.springframework.security.core.context.SecurityContextImpl"
     },
     "name": "org.springframework.security.authentication.AbstractAuthenticationToken"

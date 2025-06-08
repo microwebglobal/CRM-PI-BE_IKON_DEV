@@ -33,7 +33,7 @@ public class JpaBaseConfiguration__BeanDefinitions {
      * Get the bean instance for 'persistenceManagedTypes'.
      */
     private static PersistenceManagedTypes getPersistenceManagedTypesInstance() {
-      List<String> managedClassNames = List.of("com.example.crmchatbotbackend.model.User", "org.springframework.modulith.events.jpa.updating.DefaultJpaEventPublication");
+      List<String> managedClassNames = List.of("com.example.crmchatbotbackend.model.BlacklistedToken", "com.example.crmchatbotbackend.model.Chat", "com.example.crmchatbotbackend.model.User", "org.springframework.modulith.events.jpa.updating.DefaultJpaEventPublication");
       List<String> managedPackages = List.of();
       return PersistenceManagedTypes.of(managedClassNames, managedPackages);
     }

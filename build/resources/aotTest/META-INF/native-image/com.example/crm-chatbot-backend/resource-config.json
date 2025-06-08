@@ -8,12 +8,6 @@
         "pattern": "\\QMETA-INF\\E"
       },
       {
-        "pattern": "\\QMETA-INF\/VAADIN\\E"
-      },
-      {
-        "pattern": "\\QMETA-INF\/VAADIN\/\\E.*"
-      },
-      {
         "pattern": "\\QMETA-INF\/resources\\E"
       },
       {
@@ -53,52 +47,13 @@
         "pattern": "\\Qcom\/example\/crmchatbotbackend\/config\/SecurityConfig.class\\E"
       },
       {
-        "pattern": "\\Qcom\/vaadin\\E"
-      },
-      {
-        "pattern": "\\Qcom\/vaadin\/flow\\E"
-      },
-      {
-        "pattern": "\\Qcom\/vaadin\/flow\/component\\E"
-      },
-      {
-        "pattern": "\\Qcom\/vaadin\/flow\/component\/login\\E"
-      },
-      {
-        "pattern": "\\Qcom\/vaadin\/flow\/component\/login\/i18n.json\\E"
-      },
-      {
-        "pattern": "\\Qcom\/vaadin\/flow\/router\\E"
-      },
-      {
-        "pattern": "\\Qcom\/vaadin\/flow\/router\/\\E.*"
-      },
-      {
-        "pattern": "\\Qcom\/vaadin\/flow\/server\\E"
-      },
-      {
-        "pattern": "\\Qcom\/vaadin\/flow\/server\/\\E.*"
-      },
-      {
         "pattern": "\\Qdata-\\E.*\\Q.sql\\E"
       },
       {
         "pattern": "\\Qdata.sql\\E"
       },
       {
-        "pattern": "\\Qfile-routes.json\\E"
-      },
-      {
         "pattern": "\\Qorg\\E"
-      },
-      {
-        "pattern": "\\Qorg\/atmosphere\\E"
-      },
-      {
-        "pattern": "\\Qorg\/atmosphere\/util\\E"
-      },
-      {
-        "pattern": "\\Qorg\/atmosphere\/util\/version.properties\\E"
       },
       {
         "pattern": "\\Qorg\/springframework\\E"
@@ -162,6 +117,15 @@
       },
       {
         "pattern": "\\Qorg\/springframework\/http\/mime.types\\E"
+      },
+      {
+        "pattern": "\\Qorg\/springframework\/mail\\E"
+      },
+      {
+        "pattern": "\\Qorg\/springframework\/mail\/javamail\\E"
+      },
+      {
+        "pattern": "\\Qorg\/springframework\/mail\/javamail\/mime.types\\E"
       },
       {
         "pattern": "\\Qorg\/springframework\/modulith\\E"
@@ -300,27 +264,6 @@
       },
       {
         "pattern": "\\Qspringdoc.config.properties\\E"
-      },
-      {
-        "pattern": "\\Qstatic\\E"
-      },
-      {
-        "pattern": "\\Qstatic\/\\E.*"
-      },
-      {
-        "pattern": "\\Qtemplates\\E"
-      },
-      {
-        "pattern": "\\Qtemplates\/\\E.*"
-      },
-      {
-        "pattern": "\\Qvaadin-featureflags.properties\\E"
-      },
-      {
-        "pattern": "\\Qvaadin-i18n\\E"
-      },
-      {
-        "pattern": "\\Qvaadin-i18n\/\\E.*"
       }
     ]
   },

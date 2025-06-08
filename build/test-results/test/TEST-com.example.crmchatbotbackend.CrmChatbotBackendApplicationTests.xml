@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.crmchatbotbackend.CrmChatbotBackendApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-06-08T06:14:42.835Z" hostname="192.168.1.2" time="0.218">
+<testsuite name="com.example.crmchatbotbackend.CrmChatbotBackendApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-06-08T16:19:21.659Z" hostname="DESKTOP-7OMH2LH" time="2.405">
   <properties/>
-  <testcase name="contextLoads()" classname="com.example.crmchatbotbackend.CrmChatbotBackendApplicationTests" time="0.218"/>
-  <system-out><![CDATA[11:44:39.744 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.crmchatbotbackend.CrmChatbotBackendApplicationTests]: CrmChatbotBackendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-11:44:39.910 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.crmchatbotbackend.CrmChatbotBackendApplication for test class com.example.crmchatbotbackend.CrmChatbotBackendApplicationTests
+  <testcase name="contextLoads()" classname="com.example.crmchatbotbackend.CrmChatbotBackendApplicationTests" time="2.405"/>
+  <system-out><![CDATA[21:48:53.029 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.crmchatbotbackend.CrmChatbotBackendApplicationTests]: CrmChatbotBackendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:48:53.596 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.crmchatbotbackend.CrmChatbotBackendApplication for test class com.example.crmchatbotbackend.CrmChatbotBackendApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,19 +14,26 @@
 
  :: Spring Boot ::                (v3.5.0)
 
-2025-06-08T11:44:40.256+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] c.e.c.CrmChatbotBackendApplicationTests  : Starting CrmChatbotBackendApplicationTests using Java 17.0.15 with PID 332 (started by shanelsilva in /Users/shanelsilva/Desktop/crm-chatbot/crm-chatbot-backend)
-2025-06-08T11:44:40.257+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] c.e.c.CrmChatbotBackendApplicationTests  : No active profile set, falling back to 1 default profile: "default"
-2025-06-08T11:44:40.888+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-06-08T11:44:40.958+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 1 JPA repository interface.
-2025-06-08T11:44:41.219+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-06-08T11:44:41.259+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@6eab92f3
-2025-06-08T11:44:41.260+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-06-08T11:44:41.309+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-06-08T11:44:41.329+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
-2025-06-08T11:44:41.344+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-06-08T11:44:41.477+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-06-08T11:44:41.509+05:30  WARN 332 --- [crm-chatbot-backend] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-06-08T11:44:41.517+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-06-08T21:48:55.391+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] c.e.c.CrmChatbotBackendApplicationTests  : Starting CrmChatbotBackendApplicationTests using Java 17.0.10 with PID 17872 (started by Bhanu Jayalath in D:\GIT HUB\crm\crm-chatbot-backend-)
+2025-06-08T21:48:55.394+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] c.e.c.CrmChatbotBackendApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2025-06-08T21:49:00.509+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-08T21:49:00.513+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-08T21:49:01.220+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 675 ms. Found 3 JPA repository interfaces.
+2025-06-08T21:49:01.307+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-08T21:49:01.309+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-08T21:49:01.356+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.crmchatbotbackend.repository.BlacklistedTokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-06-08T21:49:01.357+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.crmchatbotbackend.repository.ChatRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-06-08T21:49:01.358+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.crmchatbotbackend.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-06-08T21:49:01.359+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2025-06-08T21:49:03.722+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-08T21:49:04.031+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@2b464384
+2025-06-08T21:49:04.037+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-08T21:49:04.302+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-08T21:49:04.484+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-08T21:49:04.575+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-08T21:49:05.382+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-08T21:49:05.532+05:30  WARN 17872 --- [crm-chatbot-backend] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-08T21:49:05.582+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 10.4.28
@@ -34,17 +41,12 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-06-08T11:44:41.911+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-06-08T11:44:41.937+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-06-08T11:44:42.187+05:30  WARN 332 --- [crm-chatbot-backend] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-06-08T11:44:42.205+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-06-08T11:44:42.576+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] org.atmosphere.cpr.AtmosphereFramework   : Installed AtmosphereHandler com.vaadin.hilla.push.PushEndpoint mapped to context-path: /HILLA/push
-2025-06-08T11:44:42.576+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] org.atmosphere.cpr.AtmosphereFramework   : Installed the following AtmosphereInterceptor mapped to AtmosphereHandler com.vaadin.hilla.push.PushEndpoint
-2025-06-08T11:44:42.576+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] org.atmosphere.cpr.AtmosphereFramework   : 	org.atmosphere.interceptor.AtmosphereResourceLifecycleInterceptor : Atmosphere LifeCycle
-2025-06-08T11:44:42.576+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] org.atmosphere.cpr.AtmosphereFramework   : 	org.atmosphere.client.TrackMessageSizeInterceptor :  Track Message Size Interceptor using |
-2025-06-08T11:44:42.576+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] org.atmosphere.cpr.AtmosphereFramework   : 	org.atmosphere.interceptor.SuspendTrackerInterceptor : UUID Tracking Interceptor
-2025-06-08T11:44:42.822+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] o.s.s.config.TaskSchedulerRouter         : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-2025-06-08T11:44:42.829+05:30  INFO 332 --- [crm-chatbot-backend] [    Test worker] c.e.c.CrmChatbotBackendApplicationTests  : Started CrmChatbotBackendApplicationTests in 2.801 seconds (process running for 3.497)
+2025-06-08T21:49:08.831+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-08T21:49:09.028+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-08T21:49:13.372+05:30  WARN 17872 --- [crm-chatbot-backend] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-08T21:49:13.678+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-06-08T21:49:21.435+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] o.s.s.config.TaskSchedulerRouter         : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2025-06-08T21:49:21.502+05:30  INFO 17872 --- [crm-chatbot-backend] [    Test worker] c.e.c.CrmChatbotBackendApplicationTests  : Started CrmChatbotBackendApplicationTests in 27.134 seconds (process running for 32.303)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

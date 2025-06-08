@@ -1,5 +1,6 @@
 package com.example.crmchatbotbackend.controller;
 
+import com.example.crmchatbotbackend.repository.BlacklistedTokenRepository;
 import com.example.crmchatbotbackend.repository.UserRepository;
 import com.example.crmchatbotbackend.security.JwtUtil;
 import org.springframework.aot.generate.Generated;
@@ -18,8 +19,8 @@ public class AuthController__TestContext001_BeanDefinitions {
    * Get the bean instance supplier for 'authController'.
    */
   private static BeanInstanceSupplier<AuthController> getAuthControllerInstanceSupplier() {
-    return BeanInstanceSupplier.<AuthController>forConstructor(AuthenticationManager.class, JwtUtil.class, UserRepository.class, PasswordEncoder.class)
-            .withGenerator((registeredBean, args) -> new AuthController(args.get(0), args.get(1), args.get(2), args.get(3)));
+    return BeanInstanceSupplier.<AuthController>forConstructor(AuthenticationManager.class, JwtUtil.class, UserRepository.class, PasswordEncoder.class, BlacklistedTokenRepository.class)
+            .withGenerator((registeredBean, args) -> new AuthController(args.get(0), args.get(1), args.get(2), args.get(3), args.get(4)));
   }
 
   /**

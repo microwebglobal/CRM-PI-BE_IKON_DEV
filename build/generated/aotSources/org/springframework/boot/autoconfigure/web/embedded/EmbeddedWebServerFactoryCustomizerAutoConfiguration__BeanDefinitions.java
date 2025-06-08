@@ -55,38 +55,4 @@ public class EmbeddedWebServerFactoryCustomizerAutoConfiguration__BeanDefinition
       return beanDefinition;
     }
   }
-
-  /**
-   * Bean definitions for {@link EmbeddedWebServerFactoryCustomizerAutoConfiguration.NettyWebServerFactoryCustomizerConfiguration}.
-   */
-  @Generated
-  public static class NettyWebServerFactoryCustomizerConfiguration {
-    /**
-     * Get the bean definition for 'nettyWebServerFactoryCustomizerConfiguration'.
-     */
-    public static BeanDefinition getNettyWebServerFactoryCustomizerConfigurationBeanDefinition() {
-      RootBeanDefinition beanDefinition = new RootBeanDefinition(EmbeddedWebServerFactoryCustomizerAutoConfiguration.NettyWebServerFactoryCustomizerConfiguration.class);
-      beanDefinition.setInstanceSupplier(EmbeddedWebServerFactoryCustomizerAutoConfiguration.NettyWebServerFactoryCustomizerConfiguration::new);
-      return beanDefinition;
-    }
-
-    /**
-     * Get the bean instance supplier for 'nettyWebServerFactoryCustomizer'.
-     */
-    private static BeanInstanceSupplier<NettyWebServerFactoryCustomizer> getNettyWebServerFactoryCustomizerInstanceSupplier(
-        ) {
-      return BeanInstanceSupplier.<NettyWebServerFactoryCustomizer>forFactoryMethod(EmbeddedWebServerFactoryCustomizerAutoConfiguration.NettyWebServerFactoryCustomizerConfiguration.class, "nettyWebServerFactoryCustomizer", Environment.class, ServerProperties.class)
-              .withGenerator((registeredBean, args) -> registeredBean.getBeanFactory().getBean("org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration$NettyWebServerFactoryCustomizerConfiguration", EmbeddedWebServerFactoryCustomizerAutoConfiguration.NettyWebServerFactoryCustomizerConfiguration.class).nettyWebServerFactoryCustomizer(args.get(0), args.get(1)));
-    }
-
-    /**
-     * Get the bean definition for 'nettyWebServerFactoryCustomizer'.
-     */
-    public static BeanDefinition getNettyWebServerFactoryCustomizerBeanDefinition() {
-      RootBeanDefinition beanDefinition = new RootBeanDefinition(NettyWebServerFactoryCustomizer.class);
-      beanDefinition.setFactoryBeanName("org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration$NettyWebServerFactoryCustomizerConfiguration");
-      beanDefinition.setInstanceSupplier(getNettyWebServerFactoryCustomizerInstanceSupplier());
-      return beanDefinition;
-    }
-  }
 }
