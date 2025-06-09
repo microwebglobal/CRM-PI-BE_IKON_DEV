@@ -201,6 +201,12 @@
     ],
     "methods": [
       {
+        "name": "getChatHistory",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
         "name": "saveChatMessage",
         "parameterTypes": [
           "com.example.crmchatbotbackend.dto.ChatDTO"

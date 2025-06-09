@@ -40,7 +40,7 @@ public class RepositoryComposition__BeanDefinitions {
     }
 
     /**
-     * Get the bean instance supplier for 'jpa.BlacklistedTokenRepository.fragments#0'.
+     * Get the bean instance supplier for 'jpa.ChatRepository.fragments#0'.
      */
     private static BeanInstanceSupplier<RepositoryFragmentsFactoryBean> getFragmentsInstanceSupplier1(
         ) {
@@ -61,7 +61,7 @@ public class RepositoryComposition__BeanDefinitions {
     }
 
     /**
-     * Get the bean instance supplier for 'jpa.ChatRepository.fragments#0'.
+     * Get the bean instance supplier for 'jpa.BlacklistedTokenRepository.fragments#0'.
      */
     private static BeanInstanceSupplier<RepositoryFragmentsFactoryBean> getFragmentsInstanceSupplier2(
         ) {

@@ -440,11 +440,11 @@ public class CrmChatbotBackendApplication__BeanFactoryRegistrations {
     beanFactory.registerBeanDefinition("jpa.UserRepository.fragments#0", RepositoryComposition__BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition());
     beanFactory.registerBeanDefinition("userRepository", UserRepository__BeanDefinitions.getUserRepositoryBeanDefinition());
     beanFactory.registerBeanDefinition("jpa.named-queries#1", PropertiesBasedNamedQueries__BeanDefinitions.getNamedqueriesBeanDefinition1());
-    beanFactory.registerBeanDefinition("jpa.BlacklistedTokenRepository.fragments#0", RepositoryComposition__BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition1());
-    beanFactory.registerBeanDefinition("blacklistedTokenRepository", BlacklistedTokenRepository__BeanDefinitions.getBlacklistedTokenRepositoryBeanDefinition());
-    beanFactory.registerBeanDefinition("jpa.named-queries#2", PropertiesBasedNamedQueries__BeanDefinitions.getNamedqueriesBeanDefinition2());
-    beanFactory.registerBeanDefinition("jpa.ChatRepository.fragments#0", RepositoryComposition__BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition2());
+    beanFactory.registerBeanDefinition("jpa.ChatRepository.fragments#0", RepositoryComposition__BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition1());
     beanFactory.registerBeanDefinition("chatRepository", ChatRepository__BeanDefinitions.getChatRepositoryBeanDefinition());
+    beanFactory.registerBeanDefinition("jpa.named-queries#2", PropertiesBasedNamedQueries__BeanDefinitions.getNamedqueriesBeanDefinition2());
+    beanFactory.registerBeanDefinition("jpa.BlacklistedTokenRepository.fragments#0", RepositoryComposition__BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition2());
+    beanFactory.registerBeanDefinition("blacklistedTokenRepository", BlacklistedTokenRepository__BeanDefinitions.getBlacklistedTokenRepositoryBeanDefinition());
     beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.data.redis.RedisReactiveAutoConfiguration", RedisReactiveAutoConfiguration__BeanDefinitions.getRedisReactiveAutoConfigurationBeanDefinition());
     beanFactory.registerBeanDefinition("reactiveRedisTemplate", RedisReactiveAutoConfiguration__BeanDefinitions.getReactiveRedisTemplateBeanDefinition());
     beanFactory.registerBeanDefinition("reactiveStringRedisTemplate", RedisReactiveAutoConfiguration__BeanDefinitions.getReactiveStringRedisTemplateBeanDefinition());
