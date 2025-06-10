@@ -38,6 +38,8 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/api/auth/login",
                                 "/api/chat",
+                                "/api/leads",
+                                "/api/leads/*",
                                 "/api/chat/conversation/*",
                                 "/api/auth/register",
                                 "/api/auth/logout", // ✅ Include logout as public or protected based on logic
