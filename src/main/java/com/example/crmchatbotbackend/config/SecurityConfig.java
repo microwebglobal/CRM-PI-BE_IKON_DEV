@@ -43,6 +43,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/api/auth/login",
+                                "/api/leads",
                                 "/api/auth/register",
                                 "/api/auth/refresh-token",
                                 "/api/auth/logout",
