@@ -3,8 +3,7 @@ name: Deploy Backend to VPS
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:  
 
 jobs:
   deploy:
@@ -13,12 +12,20 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 
+        lfs: false      
       
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
+        
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: '8.14'
         
     - name: Cache Gradle packages
       uses: actions/cache@v3
@@ -30,33 +37,88 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gradle-
           
-    - name: Grant execute permission for gradlew
+    - name: Download Gradle wrapper if missing
+      run: |
+        if [ ! -f "gradle/wrapper/gradle-wrapper.jar" ]; then
+          echo "Gradle wrapper JAR not found, downloading..."
+          mkdir -p gradle/wrapper
+          curl -L -o gradle/wrapper/gradle-wrapper.jar \
+            https://github.com/gradle/gradle/raw/v8.14.0/gradle/wrapper/gradle-wrapper.jar
+        else
+          echo "Gradle wrapper JAR found"
+        fi
+        
+    - name: Make gradlew executable
       run: chmod +x gradlew
       
-    - name: Build with Gradle
-      run: ./gradlew build -x test
+    - name: Validate Gradle wrapper
+      uses: gradle/wrapper-validation-action@v1
+      continue-on-error: true 
       
+    - name: Clean and build with Gradle
+      run: |
+        ./gradlew clean build -x test --no-daemon --stacktrace
+      env:
+        GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+        
+    - name: Verify JAR file exists
+      run: |
+        echo "Checking for JAR files..."
+        ls -la build/libs/
+        if [ ! -f build/libs/*.jar ]; then
+          echo "No JAR file found in build/libs/"
+          exit 1
+        fi
+        
     - name: Create deployment package
       run: |
         mkdir -p deploy
         cp build/libs/*.jar deploy/crm-chatbot-backend.jar
-        cp src/main/resources/application-prod.properties deploy/
+        if [ -f "src/main/resources/application-prod.properties" ]; then
+          cp src/main/resources/application-prod.properties deploy/
+        else
+          echo "application-prod.properties not found, creating default..."
+          cat > deploy/application-prod.properties << EOF
+        # Production configuration will be set via environment variables
+        spring.application.name=crm-chatbot-backend
+        server.port=8080
+        spring.profiles.active=prod
+        EOF
+        fi
+        echo "Deployment package contents:"
+        ls -la deploy/
         
-    - name: Deploy to VPS
+    - name: Stop backend service
+      uses: appleboy/ssh-action@v1.0.0
+      continue-on-error: true
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: deploy
+        key: ${{ secrets.VPS_SSH_KEY }}
+        script: |
+          echo "Stopping pidash-backend service..."
+          sudo systemctl stop pidash-backend || echo "Service was not running"
+          
+    - name: Backup and clean old deployment
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.VPS_HOST }}
         username: deploy
         key: ${{ secrets.VPS_SSH_KEY }}
         script: |
-          # Stop the service
-          sudo systemctl stop pidash-backend || true
+          # Create backup directory
+          mkdir -p /var/www/pidash-backend/backups
           
-          # Backup current jar
-          cp /var/www/pidash-backend/crm-chatbot-backend.jar /var/www/pidash-backend/crm-chatbot-backend.jar.backup || true
+          # Backup current jar if it exists
+          if [ -f "/var/www/pidash-backend/crm-chatbot-backend.jar" ]; then
+            echo "Backing up current JAR..."
+            cp /var/www/pidash-backend/crm-chatbot-backend.jar \
+               /var/www/pidash-backend/backups/crm-chatbot-backend-$(date +%Y%m%d-%H%M%S).jar
+          fi
           
-          # Remove old files
-          rm -rf /var/www/pidash-backend/*
+          # Clean old files (keep backups)
+          find /var/www/pidash-backend/ -maxdepth 1 -type f -name "*.jar" -delete || true
+          find /var/www/pidash-backend/ -maxdepth 1 -type f -name "*.properties" -delete || true
           
     - name: Copy files to VPS
       uses: appleboy/scp-action@v0.1.4
@@ -67,22 +129,81 @@ jobs:
         source: "deploy/*"
         target: "/var/www/pidash-backend/"
         strip_components: 1
+        overwrite: true
         
-    - name: Start application
+    - name: Set up environment and start application
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: ${{ secrets.VPS_HOST }}
         username: deploy
         key: ${{ secrets.VPS_SSH_KEY }}
         script: |
-          # Create environment file
-          echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" | sudo tee /var/www/pidash-backend/.env
+          # Verify files were copied
+          echo "Verifying deployment files..."
+          ls -la /var/www/pidash-backend/
           
-          # Reload systemd and start service
+          # Create/update environment file
+          echo "Setting up environment variables..."
+          sudo tee /var/www/pidash-backend/.env > /dev/null << EOF
+          DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+          SPRING_PROFILES_ACTIVE=prod
+          EOF
+          
+          # Set proper permissions
+          sudo chown -R deploy:deploy /var/www/pidash-backend/
+          sudo chmod +x /var/www/pidash-backend/crm-chatbot-backend.jar
+          
+          # Reload systemd daemon
           sudo systemctl daemon-reload
+          
+          # Enable service if not already enabled
           sudo systemctl enable pidash-backend
+          
+          # Start the service
+          echo "Starting pidash-backend service..."
           sudo systemctl start pidash-backend
           
-          # Wait and check status
-          sleep 10
-          sudo systemctl status pidash-backend
+          # Wait for service to start
+          sleep 15
+          
+          # Check service status
+          echo "Checking service status..."
+          sudo systemctl status pidash-backend --no-pager
+          
+          # Check if application is responding
+          echo "Testing application health..."
+          for i in {1..10}; do
+            if curl -f http://localhost:8080/actuator/health 2>/dev/null || curl -f http://localhost:8080/api/auth/me 2>/dev/null; then
+              echo "Application is responding!"
+              break
+            else
+              echo "Attempt $i: Application not responding yet, waiting..."
+              sleep 10
+            fi
+          done
+          
+          # Show recent logs
+          echo "Recent application logs:"
+          sudo journalctl -u pidash-backend --no-pager -n 20
+          
+    - name: Verify deployment
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: deploy
+        key: ${{ secrets.VPS_SSH_KEY }}
+        script: |
+          echo "=== Final Deployment Verification ==="
+          echo "Service Status:"
+          sudo systemctl is-active pidash-backend
+          
+          echo "Process Info:"
+          ps aux | grep java | grep -v grep || echo "No Java process found"
+          
+          echo "Port Check:"
+          netstat -tlnp | grep :8080 || echo "Port 8080 not listening"
+          
+          echo "Application Test:"
+          curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/actuator/health || echo "Health check failed"
+          
+          echo "Deployment completed at $(date)"
