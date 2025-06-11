@@ -40,7 +40,7 @@ jobs:
       run: |
         mkdir -p deploy
         cp build/libs/*.jar deploy/crm-chatbot-backend.jar
-        cp src/main/resources/application-prod.properties deploy/
+        cp src/main/resources/application.properties deploy/
         
     - name: Deploy to VPS
       uses: appleboy/ssh-action@v1.0.0
