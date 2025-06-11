@@ -34,11 +34,20 @@ public class ChatController {
     }
 
     @GetMapping("/conversation/{sessionId}")
-    public List<ChatDTO> getChatHistory(@PathVariable String sessionId) {
+    public List<ChatDTO> getChatHistory(@PathVariable("sessionId") String sessionId) {
         List<Chat> chatList = chatRepository.findBySessionIdOrderByTimestampAsc(sessionId);
         return chatList.stream()
                 .map(ChatDTO::fromEntity)
                 .toList();
     }
 
+    @GetMapping("/first-per-session")
+    public List<ChatDTO> getFirstChatPerSession() {
+        List<Chat> chats = chatRepository.findFirstChatPerSession();
+        return chats.stream()
+                .map(ChatDTO::fromEntity)
+                .toList();
+    }
+
 }
+

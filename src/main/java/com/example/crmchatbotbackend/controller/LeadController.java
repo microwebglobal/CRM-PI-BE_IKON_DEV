@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Map;                      // <--- Add this import
 import java.util.stream.Collectors;
 
 @RestController
@@ -67,5 +68,29 @@ public class LeadController {
         } else {
             return "Lead not found.";
         }
+    }
+
+    // Get Lead Count by Status (returning string keys)
+    @GetMapping("/count-by-status")
+    public Map<String, Long> getLeadCountByStatus() {
+        List<Lead> leads = leadRepository.findAll();
+        return leads.stream()
+                .collect(Collectors.groupingBy(
+                        lead -> lead.getStatus().name(), // convert enum to String
+                        Collectors.counting()
+                ));
+    }
+
+
+
+    // Get Lead Count by Insurance Type
+    @GetMapping("/count-by-insurance")
+    public Map<String, Long> getLeadCountByInsuranceType() {
+        List<Lead> leads = leadRepository.findAll();
+        return leads.stream()
+                .collect(Collectors.groupingBy(
+                        Lead::getInsuranceType,
+                        Collectors.counting()
+                ));
     }
 }
