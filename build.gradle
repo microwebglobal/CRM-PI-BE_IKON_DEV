@@ -101,3 +101,18 @@ hibernate {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+jar {
+    enabled = false
+    archiveClassifier = ''
+}
+
+bootJar {
+    enabled = true
+    archiveClassifier = ''
+    archiveFileName = "${project.name}-${project.version}.jar"
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
