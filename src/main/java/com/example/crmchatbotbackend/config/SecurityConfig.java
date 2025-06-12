@@ -97,7 +97,8 @@ public class SecurityConfig {
 public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration config = new CorsConfiguration();
     config.setAllowedOrigins(List.of(
-        "http://localhost:5173",                    // Local development
+        "http://localhost:5173",  
+        "https://chatbot-assistant-backend-hz5l.onrender.com",  
         "https://pidash.microwebstudios.com",       // Production HTTPS
         "http://pidash.microwebstudios.com"         // Production HTTP (redirects)
     ));
