@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfigurationSource;
 
 /**
  * Bean definitions for {@link SecurityConfig}.
@@ -89,6 +90,25 @@ public class SecurityConfig__BeanDefinitions {
     RootBeanDefinition beanDefinition = new RootBeanDefinition(AuthenticationManager.class);
     beanDefinition.setFactoryBeanName("securityConfig");
     beanDefinition.setInstanceSupplier(getAuthenticationManagerInstanceSupplier());
+    return beanDefinition;
+  }
+
+  /**
+   * Get the bean instance supplier for 'corsConfigurationSource'.
+   */
+  private static BeanInstanceSupplier<CorsConfigurationSource> getCorsConfigurationSourceInstanceSupplier(
+      ) {
+    return BeanInstanceSupplier.<CorsConfigurationSource>forFactoryMethod(SecurityConfig$$SpringCGLIB$$0.class, "corsConfigurationSource")
+            .withGenerator((registeredBean) -> registeredBean.getBeanFactory().getBean("securityConfig", SecurityConfig.class).corsConfigurationSource());
+  }
+
+  /**
+   * Get the bean definition for 'corsConfigurationSource'.
+   */
+  public static BeanDefinition getCorsConfigurationSourceBeanDefinition() {
+    RootBeanDefinition beanDefinition = new RootBeanDefinition(CorsConfigurationSource.class);
+    beanDefinition.setFactoryBeanName("securityConfig");
+    beanDefinition.setInstanceSupplier(getCorsConfigurationSourceInstanceSupplier());
     return beanDefinition;
   }
 }

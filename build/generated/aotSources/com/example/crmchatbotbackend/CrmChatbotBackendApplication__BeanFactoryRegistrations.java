@@ -216,6 +216,7 @@ public class CrmChatbotBackendApplication__BeanFactoryRegistrations {
     beanFactory.registerBeanDefinition("securityFilterChain", SecurityConfig__BeanDefinitions.getSecurityFilterChainBeanDefinition());
     beanFactory.registerBeanDefinition("passwordEncoder", SecurityConfig__BeanDefinitions.getPasswordEncoderBeanDefinition());
     beanFactory.registerBeanDefinition("authenticationManager", SecurityConfig__BeanDefinitions.getAuthenticationManagerBeanDefinition());
+    beanFactory.registerBeanDefinition("corsConfigurationSource", SecurityConfig__BeanDefinitions.getCorsConfigurationSourceBeanDefinition());
     beanFactory.registerBeanDefinition("org.springframework.aop.config.internalAutoProxyCreator", AnnotationAwareAspectJAutoProxyCreator__BeanDefinitions.getInternalAutoProxyCreatorBeanDefinition());
     beanFactory.registerBeanDefinition("preFilterAuthorizationAdvisor", MethodSecurityAdvisorRegistrar__BeanDefinitions.AdvisorWrapper.getPreFilterAuthorizationAdvisorBeanDefinition());
     beanFactory.registerBeanDefinition("preAuthorizeAuthorizationAdvisor", MethodSecurityAdvisorRegistrar__BeanDefinitions.AdvisorWrapper.getPreAuthorizeAuthorizationAdvisorBeanDefinition());
@@ -440,11 +441,11 @@ public class CrmChatbotBackendApplication__BeanFactoryRegistrations {
     beanFactory.registerBeanDefinition("org.springframework.data.jpa.util.JpaMetamodelCacheCleanup", JpaMetamodelCacheCleanup__BeanDefinitions.getJpaMetamodelCacheCleanupBeanDefinition());
     beanFactory.registerBeanDefinition("org.springframework.data.jpa.repository.support.JpaEvaluationContextExtension", JpaEvaluationContextExtension__BeanDefinitions.getJpaEvaluationContextExtensionBeanDefinition());
     beanFactory.registerBeanDefinition("jpa.named-queries#0", PropertiesBasedNamedQueries__BeanDefinitions.getNamedqueriesBeanDefinition());
-    beanFactory.registerBeanDefinition("jpa.UserRepository.fragments#0", RepositoryComposition__BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition());
-    beanFactory.registerBeanDefinition("userRepository", UserRepository__BeanDefinitions.getUserRepositoryBeanDefinition());
-    beanFactory.registerBeanDefinition("jpa.named-queries#1", PropertiesBasedNamedQueries__BeanDefinitions.getNamedqueriesBeanDefinition1());
-    beanFactory.registerBeanDefinition("jpa.ChatRepository.fragments#0", RepositoryComposition__BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition1());
+    beanFactory.registerBeanDefinition("jpa.ChatRepository.fragments#0", RepositoryComposition__BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition());
     beanFactory.registerBeanDefinition("chatRepository", ChatRepository__BeanDefinitions.getChatRepositoryBeanDefinition());
+    beanFactory.registerBeanDefinition("jpa.named-queries#1", PropertiesBasedNamedQueries__BeanDefinitions.getNamedqueriesBeanDefinition1());
+    beanFactory.registerBeanDefinition("jpa.UserRepository.fragments#0", RepositoryComposition__BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition1());
+    beanFactory.registerBeanDefinition("userRepository", UserRepository__BeanDefinitions.getUserRepositoryBeanDefinition());
     beanFactory.registerBeanDefinition("jpa.named-queries#2", PropertiesBasedNamedQueries__BeanDefinitions.getNamedqueriesBeanDefinition2());
     beanFactory.registerBeanDefinition("jpa.LeadRepository.fragments#0", RepositoryComposition__BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition2());
     beanFactory.registerBeanDefinition("leadRepository", LeadRepository__BeanDefinitions.getLeadRepositoryBeanDefinition());

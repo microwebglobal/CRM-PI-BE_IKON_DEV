@@ -23,6 +23,7 @@ public class ChatDTO {
     private Date timestamp;
     private String intent;
     private String metadata;
+    private String version;
 
     // Convert from Entity to DTO
     public static ChatDTO fromEntity(Chat chat) {
@@ -36,6 +37,7 @@ public class ChatDTO {
                 .timestamp(chat.getTimestamp())
                 .intent(chat.getIntent())
                 .metadata(chat.getMetadata())
+                .version(chat.getVersion())
                 .build();
     }
 
@@ -50,6 +52,7 @@ public class ChatDTO {
                 .timestamp(this.timestamp != null ? this.timestamp : new Date())
                 .intent(this.intent)
                 .metadata(this.metadata)
+                .version(this.version)
                 .build();
     }
 }

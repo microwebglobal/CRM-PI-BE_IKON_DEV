@@ -77,6 +77,10 @@
         "parameterTypes": [ ]
       },
       {
+        "name": "corsConfigurationSource",
+        "parameterTypes": [ ]
+      },
+      {
         "name": "passwordEncoder",
         "parameterTypes": [ ]
       },
@@ -207,6 +211,10 @@
         ]
       },
       {
+        "name": "getFirstChatPerSession",
+        "parameterTypes": [ ]
+      },
+      {
         "name": "saveChatMessage",
         "parameterTypes": [
           "com.example.crmchatbotbackend.dto.ChatDTO"
@@ -238,6 +246,14 @@
       },
       {
         "name": "getAllLeads",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getLeadCountByInsuranceType",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getLeadCountByStatus",
         "parameterTypes": [ ]
       },
       {
@@ -332,6 +348,10 @@
         "parameterTypes": [ ]
       },
       {
+        "name": "getVersion",
+        "parameterTypes": [ ]
+      },
+      {
         "name": "setAgentId",
         "parameterTypes": [
           "java.lang.Long"
@@ -383,6 +403,12 @@
         "name": "setTimestamp",
         "parameterTypes": [
           "java.util.Date"
+        ]
+      },
+      {
+        "name": "setVersion",
+        "parameterTypes": [
+          "java.lang.String"
         ]
       }
     ]
@@ -667,6 +693,10 @@
         "parameterTypes": [ ]
       },
       {
+        "name": "getVersion",
+        "parameterTypes": [ ]
+      },
+      {
         "name": "setAgent",
         "parameterTypes": [
           "com.example.crmchatbotbackend.model.User"
@@ -718,6 +748,12 @@
         "name": "setTimestamp",
         "parameterTypes": [
           "java.util.Date"
+        ]
+      },
+      {
+        "name": "setVersion",
+        "parameterTypes": [
+          "java.lang.String"
         ]
       }
     ]
@@ -18614,7 +18650,8 @@
   },
   {
     "name": "org.springframework.web.cors.CorsConfigurationSource",
-    "queryAllPublicMethods": true
+    "queryAllPublicMethods": true,
+    "queryAllDeclaredMethods": true
   },
   {
     "name": "org.springframework.web.cors.PreFlightRequestHandler",

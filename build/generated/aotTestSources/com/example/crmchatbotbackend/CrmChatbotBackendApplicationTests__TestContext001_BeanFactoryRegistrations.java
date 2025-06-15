@@ -5,8 +5,10 @@ import com.example.crmchatbotbackend.config.SecurityConfig__TestContext001_BeanD
 import com.example.crmchatbotbackend.controller.AdminController__TestContext001_BeanDefinitions;
 import com.example.crmchatbotbackend.controller.AuthController__TestContext001_BeanDefinitions;
 import com.example.crmchatbotbackend.controller.ChatController__TestContext001_BeanDefinitions;
+import com.example.crmchatbotbackend.controller.LeadController__TestContext001_BeanDefinitions;
 import com.example.crmchatbotbackend.repository.BlacklistedTokenRepository__TestContext001_BeanDefinitions;
 import com.example.crmchatbotbackend.repository.ChatRepository__TestContext001_BeanDefinitions;
+import com.example.crmchatbotbackend.repository.LeadRepository__TestContext001_BeanDefinitions;
 import com.example.crmchatbotbackend.repository.UserRepository__TestContext001_BeanDefinitions;
 import com.example.crmchatbotbackend.security.JwtTokenFilter__TestContext001_BeanDefinitions;
 import com.example.crmchatbotbackend.security.JwtUtil__TestContext001_BeanDefinitions;
@@ -192,6 +194,7 @@ public class CrmChatbotBackendApplicationTests__TestContext001_BeanFactoryRegist
     beanFactory.registerBeanDefinition("adminController", AdminController__TestContext001_BeanDefinitions.getAdminControllerBeanDefinition());
     beanFactory.registerBeanDefinition("authController", AuthController__TestContext001_BeanDefinitions.getAuthControllerBeanDefinition());
     beanFactory.registerBeanDefinition("chatController", ChatController__TestContext001_BeanDefinitions.getChatControllerBeanDefinition());
+    beanFactory.registerBeanDefinition("leadController", LeadController__TestContext001_BeanDefinitions.getLeadControllerBeanDefinition());
     beanFactory.registerBeanDefinition("jwtTokenFilter", JwtTokenFilter__TestContext001_BeanDefinitions.getJwtTokenFilterBeanDefinition());
     beanFactory.registerBeanDefinition("jwtUtil", JwtUtil__TestContext001_BeanDefinitions.getJwtUtilBeanDefinition());
     beanFactory.registerBeanDefinition("redisBlacklistService", RedisBlacklistService__TestContext001_BeanDefinitions.getRedisBlacklistServiceBeanDefinition());
@@ -217,6 +220,7 @@ public class CrmChatbotBackendApplicationTests__TestContext001_BeanFactoryRegist
     beanFactory.registerBeanDefinition("securityFilterChain", SecurityConfig__TestContext001_BeanDefinitions.getSecurityFilterChainBeanDefinition());
     beanFactory.registerBeanDefinition("passwordEncoder", SecurityConfig__TestContext001_BeanDefinitions.getPasswordEncoderBeanDefinition());
     beanFactory.registerBeanDefinition("authenticationManager", SecurityConfig__TestContext001_BeanDefinitions.getAuthenticationManagerBeanDefinition());
+    beanFactory.registerBeanDefinition("corsConfigurationSource", SecurityConfig__TestContext001_BeanDefinitions.getCorsConfigurationSourceBeanDefinition());
     beanFactory.registerBeanDefinition("org.springframework.aop.config.internalAutoProxyCreator", AnnotationAwareAspectJAutoProxyCreator__TestContext001_BeanDefinitions.getInternalAutoProxyCreatorBeanDefinition());
     beanFactory.registerBeanDefinition("preFilterAuthorizationAdvisor", MethodSecurityAdvisorRegistrar__TestContext001_BeanDefinitions.AdvisorWrapper.getPreFilterAuthorizationAdvisorBeanDefinition());
     beanFactory.registerBeanDefinition("preAuthorizeAuthorizationAdvisor", MethodSecurityAdvisorRegistrar__TestContext001_BeanDefinitions.AdvisorWrapper.getPreAuthorizeAuthorizationAdvisorBeanDefinition());
@@ -444,11 +448,14 @@ public class CrmChatbotBackendApplicationTests__TestContext001_BeanFactoryRegist
     beanFactory.registerBeanDefinition("jpa.BlacklistedTokenRepository.fragments#0", RepositoryComposition__TestContext001_BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition());
     beanFactory.registerBeanDefinition("blacklistedTokenRepository", BlacklistedTokenRepository__TestContext001_BeanDefinitions.getBlacklistedTokenRepositoryBeanDefinition());
     beanFactory.registerBeanDefinition("jpa.named-queries#1", PropertiesBasedNamedQueries__TestContext001_BeanDefinitions.getNamedqueriesBeanDefinition1());
-    beanFactory.registerBeanDefinition("jpa.UserRepository.fragments#0", RepositoryComposition__TestContext001_BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition1());
-    beanFactory.registerBeanDefinition("userRepository", UserRepository__TestContext001_BeanDefinitions.getUserRepositoryBeanDefinition());
-    beanFactory.registerBeanDefinition("jpa.named-queries#2", PropertiesBasedNamedQueries__TestContext001_BeanDefinitions.getNamedqueriesBeanDefinition2());
-    beanFactory.registerBeanDefinition("jpa.ChatRepository.fragments#0", RepositoryComposition__TestContext001_BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition2());
+    beanFactory.registerBeanDefinition("jpa.ChatRepository.fragments#0", RepositoryComposition__TestContext001_BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition1());
     beanFactory.registerBeanDefinition("chatRepository", ChatRepository__TestContext001_BeanDefinitions.getChatRepositoryBeanDefinition());
+    beanFactory.registerBeanDefinition("jpa.named-queries#2", PropertiesBasedNamedQueries__TestContext001_BeanDefinitions.getNamedqueriesBeanDefinition2());
+    beanFactory.registerBeanDefinition("jpa.UserRepository.fragments#0", RepositoryComposition__TestContext001_BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition2());
+    beanFactory.registerBeanDefinition("userRepository", UserRepository__TestContext001_BeanDefinitions.getUserRepositoryBeanDefinition());
+    beanFactory.registerBeanDefinition("jpa.named-queries#3", PropertiesBasedNamedQueries__TestContext001_BeanDefinitions.getNamedqueriesBeanDefinition3());
+    beanFactory.registerBeanDefinition("jpa.LeadRepository.fragments#0", RepositoryComposition__TestContext001_BeanDefinitions.RepositoryFragments.getFragmentsBeanDefinition3());
+    beanFactory.registerBeanDefinition("leadRepository", LeadRepository__TestContext001_BeanDefinitions.getLeadRepositoryBeanDefinition());
     beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.data.redis.RedisReactiveAutoConfiguration", RedisReactiveAutoConfiguration__TestContext001_BeanDefinitions.getRedisReactiveAutoConfigurationBeanDefinition());
     beanFactory.registerBeanDefinition("reactiveRedisTemplate", RedisReactiveAutoConfiguration__TestContext001_BeanDefinitions.getReactiveRedisTemplateBeanDefinition());
     beanFactory.registerBeanDefinition("reactiveStringRedisTemplate", RedisReactiveAutoConfiguration__TestContext001_BeanDefinitions.getReactiveStringRedisTemplateBeanDefinition());

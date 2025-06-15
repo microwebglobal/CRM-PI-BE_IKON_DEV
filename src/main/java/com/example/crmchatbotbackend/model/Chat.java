@@ -44,4 +44,8 @@ public class Chat {
 
     @Column(columnDefinition = "TEXT")
     private String metadata;
+
+    @Column(columnDefinition = "TEXT", nullable = false)
+    private String version;
+
 }

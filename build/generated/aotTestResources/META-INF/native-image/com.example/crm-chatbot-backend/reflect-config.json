@@ -77,6 +77,10 @@
         "parameterTypes": [ ]
       },
       {
+        "name": "corsConfigurationSource",
+        "parameterTypes": [ ]
+      },
+      {
         "name": "passwordEncoder",
         "parameterTypes": [ ]
       },
@@ -201,9 +205,74 @@
     ],
     "methods": [
       {
+        "name": "getChatHistory",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "getFirstChatPerSession",
+        "parameterTypes": [ ]
+      },
+      {
         "name": "saveChatMessage",
         "parameterTypes": [
           "com.example.crmchatbotbackend.dto.ChatDTO"
+        ]
+      }
+    ],
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [ ]
+      }
+    ]
+  },
+  {
+    "name": "com.example.crmchatbotbackend.controller.LeadController",
+    "queryAllPublicMethods": true,
+    "queryAllDeclaredMethods": true,
+    "fields": [
+      {
+        "name": "leadRepository"
+      }
+    ],
+    "methods": [
+      {
+        "name": "deleteLead",
+        "parameterTypes": [
+          "java.lang.Long"
+        ]
+      },
+      {
+        "name": "getAllLeads",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getLeadCountByInsuranceType",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getLeadCountByStatus",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getLeadsBySessionId",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "saveLead",
+        "parameterTypes": [
+          "com.example.crmchatbotbackend.dto.LeadDTO"
+        ]
+      },
+      {
+        "name": "updateLeadStatus",
+        "parameterTypes": [
+          "java.lang.Long",
+          "com.example.crmchatbotbackend.model.LeadStatus"
         ]
       }
     ],
@@ -267,6 +336,10 @@
         "parameterTypes": [ ]
       },
       {
+        "name": "getVersion",
+        "parameterTypes": [ ]
+      },
+      {
         "name": "setAgentId",
         "parameterTypes": [
           "java.lang.Long"
@@ -318,6 +391,169 @@
         "name": "setTimestamp",
         "parameterTypes": [
           "java.util.Date"
+        ]
+      },
+      {
+        "name": "setVersion",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "com.example.crmchatbotbackend.dto.LeadDTO",
+    "allDeclaredFields": true,
+    "allDeclaredConstructors": true,
+    "methods": [
+      {
+        "name": "getContactNumber",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getDestination",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getEmail",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getEstimatedValue",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getFullName",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getId",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getInsuranceType",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getSessionId",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getStatus",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getTravelDates",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getTravellerAge",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getUsageType",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getVehicleModel",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getVehicleNumber",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getYearOfManufacture",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setContactNumber",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setDestination",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setEmail",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setEstimatedValue",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setFullName",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setId",
+        "parameterTypes": [
+          "java.lang.Long"
+        ]
+      },
+      {
+        "name": "setInsuranceType",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setSessionId",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setStatus",
+        "parameterTypes": [
+          "com.example.crmchatbotbackend.model.LeadStatus"
+        ]
+      },
+      {
+        "name": "setTravelDates",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setTravellerAge",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setUsageType",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setVehicleModel",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setVehicleNumber",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setYearOfManufacture",
+        "parameterTypes": [
+          "java.lang.String"
         ]
       }
     ]
@@ -445,6 +681,10 @@
         "parameterTypes": [ ]
       },
       {
+        "name": "getVersion",
+        "parameterTypes": [ ]
+      },
+      {
         "name": "setAgent",
         "parameterTypes": [
           "com.example.crmchatbotbackend.model.User"
@@ -497,8 +737,188 @@
         "parameterTypes": [
           "java.util.Date"
         ]
+      },
+      {
+        "name": "setVersion",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
       }
     ]
+  },
+  {
+    "name": "com.example.crmchatbotbackend.model.Lead",
+    "allDeclaredFields": true,
+    "allDeclaredConstructors": true,
+    "methods": [
+      {
+        "name": "getContactNumber",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getCreatedAt",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getDestination",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getEmail",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getEstimatedValue",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getFullName",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getId",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getInsuranceType",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getSessionId",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getStatus",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getTravelDates",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getTravellerAge",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getUsageType",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getVehicleModel",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getVehicleNumber",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "getYearOfManufacture",
+        "parameterTypes": [ ]
+      },
+      {
+        "name": "setContactNumber",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setCreatedAt",
+        "parameterTypes": [
+          "java.util.Date"
+        ]
+      },
+      {
+        "name": "setDestination",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setEmail",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setEstimatedValue",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setFullName",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setId",
+        "parameterTypes": [
+          "java.lang.Long"
+        ]
+      },
+      {
+        "name": "setInsuranceType",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setSessionId",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setStatus",
+        "parameterTypes": [
+          "com.example.crmchatbotbackend.model.LeadStatus"
+        ]
+      },
+      {
+        "name": "setTravelDates",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setTravellerAge",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setUsageType",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setVehicleModel",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setVehicleNumber",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      },
+      {
+        "name": "setYearOfManufacture",
+        "parameterTypes": [
+          "java.lang.String"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "com.example.crmchatbotbackend.model.LeadStatus",
+    "allDeclaredFields": true,
+    "allPublicConstructors": true,
+    "allDeclaredConstructors": true,
+    "allPublicMethods": true
   },
   {
     "name": "com.example.crmchatbotbackend.model.Role",
@@ -625,6 +1045,10 @@
   },
   {
     "name": "com.example.crmchatbotbackend.repository.ChatRepository",
+    "allPublicMethods": true
+  },
+  {
+    "name": "com.example.crmchatbotbackend.repository.LeadRepository",
     "allPublicMethods": true
   },
   {
@@ -2056,6 +2480,10 @@
   },
   {
     "name": "org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "org.hibernate.generator.internal.CurrentTimestampGeneration",
     "allDeclaredConstructors": true
   },
   {
@@ -18438,7 +18866,8 @@
   },
   {
     "name": "org.springframework.web.cors.CorsConfigurationSource",
-    "queryAllPublicMethods": true
+    "queryAllPublicMethods": true,
+    "queryAllDeclaredMethods": true
   },
   {
     "name": "org.springframework.web.cors.PreFlightRequestHandler",

@@ -19,7 +19,7 @@ public class RepositoryComposition__BeanDefinitions {
   @Generated
   public static class RepositoryFragments {
     /**
-     * Get the bean instance supplier for 'jpa.UserRepository.fragments#0'.
+     * Get the bean instance supplier for 'jpa.ChatRepository.fragments#0'.
      */
     private static BeanInstanceSupplier<RepositoryFragmentsFactoryBean> getFragmentsInstanceSupplier(
         ) {
@@ -40,7 +40,7 @@ public class RepositoryComposition__BeanDefinitions {
     }
 
     /**
-     * Get the bean instance supplier for 'jpa.ChatRepository.fragments#0'.
+     * Get the bean instance supplier for 'jpa.UserRepository.fragments#0'.
      */
     private static BeanInstanceSupplier<RepositoryFragmentsFactoryBean> getFragmentsInstanceSupplier1(
         ) {
