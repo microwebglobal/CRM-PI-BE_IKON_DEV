@@ -1,2 +1,11 @@
-build/libs/*.jar
-build/libs/*.jar
+# Build directories
+build/
+.gradle/
+target/
+
+# IDE files
+.idea/
+*.iml
+
+# System files
+.DS_Store
