@@ -22,7 +22,7 @@ public class Lead {
     @Column(nullable = false)
     private String sessionId;
 
-    @Column
+    @Column(nullable = false)
     private String insuranceType;
 
     @Column
