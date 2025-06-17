@@ -3,6 +3,7 @@ package com.example.crmchatbotbackend.dto;
 import com.example.crmchatbotbackend.model.Lead;
 import com.example.crmchatbotbackend.model.LeadStatus;
 import lombok.*;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -19,6 +20,7 @@ public class LeadDTO {
     private String email;
     private String destination;
     private String travelDates;
+    private Date timestamp;
     private String travellerAge;
     private String vehicleModel;
     private String vehicleNumber;
@@ -38,6 +40,7 @@ public class LeadDTO {
                 .email(this.email)
                 .destination(this.destination)
                 .travelDates(this.travelDates)
+                .timestamp(this.timestamp != null ? this.timestamp : new Date())
                 .travellerAge(this.travellerAge)
                 .vehicleModel(this.vehicleModel)
                 .vehicleNumber(this.vehicleNumber)
@@ -63,6 +66,7 @@ public class LeadDTO {
                 .email(lead.getEmail())
                 .destination(lead.getDestination())
                 .travelDates(lead.getTravelDates())
+                .timestamp(lead.getTimestamp())
                 .travellerAge(lead.getTravellerAge())
                 .vehicleModel(lead.getVehicleModel())
                 .vehicleNumber(lead.getVehicleNumber())

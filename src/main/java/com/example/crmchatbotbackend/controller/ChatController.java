@@ -1,10 +1,7 @@
 package com.example.crmchatbotbackend.controller;
 
 import com.example.crmchatbotbackend.dto.ChatDTO;
-import com.example.crmchatbotbackend.model.Chat;
-import com.example.crmchatbotbackend.model.User;
-import com.example.crmchatbotbackend.repository.ChatRepository;
-import com.example.crmchatbotbackend.repository.UserRepository;
+import com.example.crmchatbotbackend.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -14,40 +11,21 @@ import java.util.List;
 public class ChatController {
 
     @Autowired
-    private ChatRepository chatRepository;
-
-    @Autowired
-    private UserRepository userRepository;
+    private ChatService chatService;
 
     @PostMapping
     public String saveChatMessage(@RequestBody ChatDTO request) {
-        User agent = null;
-
-        if (request.getAgentId() != null) {
-            agent = userRepository.findById(request.getAgentId()).orElse(null);
-        }
-
-        Chat chat = request.toEntity(agent);
-        chatRepository.save(chat);
-
-        return "Chat message saved successfully.";
+        chatService.saveChatAsync(request); // Non-blocking call
+        return "Chat processing started.";
     }
 
     @GetMapping("/conversation/{sessionId}")
     public List<ChatDTO> getChatHistory(@PathVariable("sessionId") String sessionId) {
-        List<Chat> chatList = chatRepository.findBySessionIdOrderByTimestampAsc(sessionId);
-        return chatList.stream()
-                .map(ChatDTO::fromEntity)
-                .toList();
+        return chatService.getChatHistory(sessionId);
     }
 
     @GetMapping("/first-per-session")
     public List<ChatDTO> getFirstChatPerSession() {
-        List<Chat> chats = chatRepository.findFirstChatPerSession();
-        return chats.stream()
-                .map(ChatDTO::fromEntity)
-                .toList();
+        return chatService.getFirstChatPerSession();
     }
-
 }
-
