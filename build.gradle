@@ -39,6 +39,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation "org.flywaydb:flyway-mysql:11.8.2"
+    implementation "org.flywaydb:flyway-core:11.8.2"   // Optional if you already have core via plugin
+    implementation "org.mariadb.jdbc:mariadb-java-client:3.3.3"
+
+
 
     // ✅ JWT Support
     implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
