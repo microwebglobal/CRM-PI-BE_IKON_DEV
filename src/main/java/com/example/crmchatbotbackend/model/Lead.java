@@ -2,7 +2,6 @@ package com.example.crmchatbotbackend.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
@@ -40,6 +39,10 @@ public class Lead {
     @Column
     private String travelDates;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false)
+    private Date timestamp;
+
     @Column
     private String travellerAge;
 
@@ -62,9 +65,11 @@ public class Lead {
     @Column(nullable = false)
     private LeadStatus status;
 
-    // Automatically set the createdAt timestamp
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false, updatable = false)
-    private Date createdAt;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "on_hold_user_id")
+    private User onHoldUser;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "closed_user_id")
+    private User closedUser;
 }

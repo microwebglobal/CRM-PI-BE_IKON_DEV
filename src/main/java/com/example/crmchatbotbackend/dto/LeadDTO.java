@@ -2,7 +2,13 @@ package com.example.crmchatbotbackend.dto;
 
 import com.example.crmchatbotbackend.model.Lead;
 import com.example.crmchatbotbackend.model.LeadStatus;
-import lombok.*;
+import com.example.crmchatbotbackend.model.User;
+import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -19,6 +25,7 @@ public class LeadDTO {
     private String email;
     private String destination;
     private String travelDates;
+    private Date timestamp;
     private String travellerAge;
     private String vehicleModel;
     private String vehicleNumber;
@@ -27,8 +34,11 @@ public class LeadDTO {
     private String estimatedValue;
     private LeadStatus status;
 
+    private Long onHoldUserId;
+    private Long closedUserId;
+
     // Convert DTO to Entity
-    public Lead toEntity() {
+    public Lead toEntity(User onHoldUser, User closedUser) {
         return Lead.builder()
                 .id(this.id)
                 .sessionId(this.sessionId)
@@ -38,6 +48,7 @@ public class LeadDTO {
                 .email(this.email)
                 .destination(this.destination)
                 .travelDates(this.travelDates)
+                .timestamp(this.timestamp != null ? this.timestamp : new Date())
                 .travellerAge(this.travellerAge)
                 .vehicleModel(this.vehicleModel)
                 .vehicleNumber(this.vehicleNumber)
@@ -45,6 +56,8 @@ public class LeadDTO {
                 .usageType(this.usageType)
                 .estimatedValue(this.estimatedValue)
                 .status(this.status)
+                .onHoldUser(onHoldUser)
+                .closedUser(closedUser)
                 .build();
     }
 
@@ -63,6 +76,7 @@ public class LeadDTO {
                 .email(lead.getEmail())
                 .destination(lead.getDestination())
                 .travelDates(lead.getTravelDates())
+                .timestamp(lead.getTimestamp())
                 .travellerAge(lead.getTravellerAge())
                 .vehicleModel(lead.getVehicleModel())
                 .vehicleNumber(lead.getVehicleNumber())
@@ -70,6 +84,8 @@ public class LeadDTO {
                 .usageType(lead.getUsageType())
                 .estimatedValue(lead.getEstimatedValue())
                 .status(lead.getStatus())
+                .onHoldUserId(lead.getOnHoldUser() != null ? lead.getOnHoldUser().getId() : null)
+                .closedUserId(lead.getClosedUser() != null ? lead.getClosedUser().getId() : null)
                 .build();
     }
 }
