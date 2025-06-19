@@ -32,8 +32,11 @@ public class LeadController {
     }
 
     @PutMapping("/{leadId}/status")
-    public String updateLeadStatus(@PathVariable Long leadId, @RequestParam LeadStatus status) {
-        return leadService.updateLeadStatus(leadId, status);
+    public String updateLeadStatus(
+            @PathVariable Long leadId,
+            @RequestParam LeadStatus status,
+            @RequestParam String remark) {
+        return leadService.updateLeadStatus(leadId, status, remark);
     }
 
     @DeleteMapping("/{leadId}")

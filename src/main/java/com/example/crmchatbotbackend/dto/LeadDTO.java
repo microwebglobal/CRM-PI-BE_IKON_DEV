@@ -35,7 +35,12 @@ public class LeadDTO {
     private LeadStatus status;
 
     private Long onHoldUserId;
+    private String onHoldRemark;
+    private Date onHoldTime;
+
     private Long closedUserId;
+    private String closedRemark;
+    private Date closedTime;
 
     // Convert DTO to Entity
     public Lead toEntity(User onHoldUser, User closedUser) {
@@ -57,7 +62,11 @@ public class LeadDTO {
                 .estimatedValue(this.estimatedValue)
                 .status(this.status)
                 .onHoldUser(onHoldUser)
+                .onHoldRemark(this.onHoldRemark)
+                .onHoldTime(this.onHoldTime)
                 .closedUser(closedUser)
+                .closedRemark(this.closedRemark)
+                .closedTime(this.closedTime)
                 .build();
     }
 
@@ -85,7 +94,11 @@ public class LeadDTO {
                 .estimatedValue(lead.getEstimatedValue())
                 .status(lead.getStatus())
                 .onHoldUserId(lead.getOnHoldUser() != null ? lead.getOnHoldUser().getId() : null)
+                .onHoldRemark(lead.getOnHoldRemark())
+                .onHoldTime(lead.getOnHoldTime())
                 .closedUserId(lead.getClosedUser() != null ? lead.getClosedUser().getId() : null)
+                .closedRemark(lead.getClosedRemark())
+                .closedTime(lead.getClosedTime())
                 .build();
     }
 }

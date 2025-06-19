@@ -72,4 +72,19 @@ public class Lead {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "closed_user_id")
     private User closedUser;
+
+    @Column
+    private String onHoldRemark;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column
+    private Date onHoldTime;
+
+    @Column
+    private String closedRemark;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column
+    private Date closedTime;
+
 }

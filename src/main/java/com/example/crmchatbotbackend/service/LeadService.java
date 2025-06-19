@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -39,7 +40,7 @@ public class LeadService {
 
     // Save Lead
     public String saveLead(LeadDTO leadDTO) {
-        Lead lead = leadDTO.toEntity(null, null); // pass null for users to avoid setting on creation
+        Lead lead = leadDTO.toEntity(null, null);
         leadRepository.save(lead);
         return "Lead saved successfully.";
     }
@@ -60,8 +61,8 @@ public class LeadService {
                 .collect(Collectors.toList());
     }
 
-    // Update Lead Status and set user who updated it
-    public String updateLeadStatus(Long leadId, LeadStatus status) {
+    // Update Lead Status with Remark and Timestamp
+    public String updateLeadStatus(Long leadId, LeadStatus status, String remark) {
         Optional<Lead> optionalLead = leadRepository.findById(leadId);
         if (optionalLead.isPresent()) {
             Lead lead = optionalLead.get();
@@ -73,14 +74,18 @@ public class LeadService {
                 if (currentUser != null) {
                     if (status == LeadStatus.ON_HOLD) {
                         lead.setOnHoldUser(currentUser);
+                        lead.setOnHoldRemark(remark);
+                        lead.setOnHoldTime(new Date());
                     } else if (status == LeadStatus.CLOSED) {
                         lead.setClosedUser(currentUser);
+                        lead.setClosedRemark(remark);
+                        lead.setClosedTime(new Date());
                     }
                 }
             }
 
             leadRepository.save(lead);
-            return "Lead status updated successfully.";
+            return "Lead status and remark updated successfully.";
         } else {
             return "Lead not found.";
         }
